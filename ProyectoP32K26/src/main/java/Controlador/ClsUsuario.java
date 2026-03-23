@@ -10,7 +10,7 @@ import Modelo.UsuarioDAO;
  *
  * @author visitante
  */
-public class ClsUsuario {
+public class clsUsuario {
     private int UsuId;
     private String UsuNombre;
     private String UsuContrasena;
@@ -20,8 +20,7 @@ public class ClsUsuario {
     private String UsuCorreo;
     private String UsuTelefono;
     private String UsuDireccion;
-    private int UsuTipo;
-
+    
     public int getUsuId() {
         return UsuId;
     }
@@ -94,15 +93,7 @@ public class ClsUsuario {
         this.UsuDireccion = UsuDireccion;
     }
 
-    public int getUsuTipo() {
-        return UsuTipo;
-    }
-
-    public void setUsuTipo(int UsuTipo) {
-        this.UsuTipo = UsuTipo;
-    }
-
-    public ClsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus, String UsuNombreReal, String UsuCorreo, String UsuTelefono, String UsuDireccion, int UsuTipo) {
+    public clsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus, String UsuNombreReal, String UsuCorreo, String UsuTelefono, String UsuDireccion) {
         this.UsuId = UsuId;
         this.UsuNombre = UsuNombre;
         this.UsuContrasena = UsuContrasena;
@@ -112,10 +103,9 @@ public class ClsUsuario {
         this.UsuCorreo = UsuCorreo;
         this.UsuTelefono = UsuTelefono;
         this.UsuDireccion = UsuDireccion;
-        this.UsuTipo = UsuTipo;
-    }
+   }
 
-    public ClsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus, String UsuNombreReal, String UsuCorreo, String UsuTelefono) {
+    public clsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus, String UsuNombreReal, String UsuCorreo, String UsuTelefono) {
         this.UsuId = UsuId;
         this.UsuNombre = UsuNombre;
         this.UsuContrasena = UsuContrasena;
@@ -126,7 +116,7 @@ public class ClsUsuario {
         this.UsuTelefono = UsuTelefono;
     }
 
-    public ClsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus, String UsuNombreReal, String UsuCorreo) {
+    public clsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus, String UsuNombreReal, String UsuCorreo) {
         this.UsuId = UsuId;
         this.UsuNombre = UsuNombre;
         this.UsuContrasena = UsuContrasena;
@@ -136,7 +126,7 @@ public class ClsUsuario {
         this.UsuCorreo = UsuCorreo;
     }
 
-    public ClsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus, String UsuNombreReal) {
+    public clsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus, String UsuNombreReal) {
         this.UsuId = UsuId;
         this.UsuNombre = UsuNombre;
         this.UsuContrasena = UsuContrasena;
@@ -145,7 +135,7 @@ public class ClsUsuario {
         this.UsuNombreReal = UsuNombreReal;
     }
 
-    public ClsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus) {
+    public clsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion, String UsuEstatus) {
         this.UsuId = UsuId;
         this.UsuNombre = UsuNombre;
         this.UsuContrasena = UsuContrasena;
@@ -153,66 +143,66 @@ public class ClsUsuario {
         this.UsuEstatus = UsuEstatus;
     }
 
-    public ClsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion) {
+    public clsUsuario(int UsuId, String UsuNombre, String UsuContrasena, String UsuUltimaSesion) {
         this.UsuId = UsuId;
         this.UsuNombre = UsuNombre;
         this.UsuContrasena = UsuContrasena;
         this.UsuUltimaSesion = UsuUltimaSesion;
     }
 
-    public ClsUsuario(int UsuId, String UsuNombre, String UsuContrasena) {
+    public clsUsuario(int UsuId, String UsuNombre, String UsuContrasena) {
         this.UsuId = UsuId;
         this.UsuNombre = UsuNombre;
         this.UsuContrasena = UsuContrasena;
     }
 
-    public ClsUsuario(int UsuId, String UsuNombre) {
+    public clsUsuario(int UsuId, String UsuNombre) {
         this.UsuId = UsuId;
         this.UsuNombre = UsuNombre;
     }
 
-    public ClsUsuario(int UsuId) {
+    public clsUsuario(int UsuId) {
         this.UsuId = UsuId;
     }
 
-    public ClsUsuario() {
+    public clsUsuario() {
     }
 
     @Override
     public String toString() {
-        return "ClsUsuario{" + "UsuId=" + UsuId + ", UsuNombre=" + UsuNombre + ", UsuContrasena=" + UsuContrasena + ", UsuUltimaSesion=" + UsuUltimaSesion + ", UsuEstatus=" + UsuEstatus + ", UsuNombreReal=" + UsuNombreReal + ", UsuCorreo=" + UsuCorreo + ", UsuTelefono=" + UsuTelefono + ", UsuDireccion=" + UsuDireccion + ", UsuTipo=" + UsuTipo + '}';
+        return "clsUsuario{" + "UsuId=" + UsuId + ", UsuNombre=" + UsuNombre + ", UsuContrasena=" + UsuContrasena + ", UsuUltimaSesion=" + UsuUltimaSesion + ", UsuEstatus=" + UsuEstatus + ", UsuNombreReal=" + UsuNombreReal + ", UsuCorreo=" + UsuCorreo + ", UsuTelefono=" + UsuTelefono + ", UsuDireccion=" + UsuDireccion + '}';
     }
 
     
   
     //Metodos de acceso a la capa controlador
-    public ClsUsuario getBuscarInformacionUsuarioPorNombre(ClsUsuario usuario)
+    public clsUsuario getBuscarInformacionUsuarioPorNombre(clsUsuario usuario)
     {
         UsuarioDAO daousuario = new UsuarioDAO();
         return daousuario.consultaUsuariosPorNombre(usuario);
     }
-    public ClsUsuario getBuscarInformacionUsuarioPorId(ClsUsuario usuario)
+    public clsUsuario getBuscarInformacionUsuarioPorId(clsUsuario usuario)
     {
         UsuarioDAO daousuario = new UsuarioDAO();
         return daousuario.consultaUsuariosPorId(usuario);
     }    
-    public List<ClsUsuario> getListadoUsuarios()
+    public List<clsUsuario> getListadoUsuarios()
     {
         UsuarioDAO daousuario = new UsuarioDAO();
-        List<ClsUsuario> listadoUsuarios = daousuario.consultaUsuarios();
+        List<clsUsuario> listadoUsuarios = daousuario.consultaUsuarios();
         return listadoUsuarios;
     }
-    public int setBorrarUsuario(ClsUsuario usuario)
+    public int setBorrarUsuario(clsUsuario usuario)
     {
         UsuarioDAO daousuario = new UsuarioDAO();
         return daousuario.borrarUsuarios(usuario);
     }          
-    public int setIngresarUsuario(ClsUsuario usuario)
+    public int setIngresarUsuario(clsUsuario usuario)
     {
         UsuarioDAO daousuario = new UsuarioDAO();
         return daousuario.ingresaUsuarios(usuario);
     }              
-    public int setModificarUsuario(ClsUsuario usuario)
+    public int setModificarUsuario(clsUsuario usuario)
     {
         UsuarioDAO daousuario = new UsuarioDAO();
         return daousuario.actualizaUsuarios(usuario);

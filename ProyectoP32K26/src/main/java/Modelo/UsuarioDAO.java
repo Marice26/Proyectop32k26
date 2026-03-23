@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Controlador.ClsUsuario;
+import Controlador.clsUsuario;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,19 +16,19 @@ import java.util.List;
  */
 public class UsuarioDAO {
 
-    private static final String SQL_SELECT = "SELECT usuid, usunombre, usucontrasena, usuultimasesion, usuestatus, usunombrereal, usucorreoe, usutelefono, usudireccion, tipuid FROM usuario";
-    private static final String SQL_INSERT = "INSERT INTO usuario(usunombre, usucontrasena, usuultimasesion, usuestatus, usunombrereal, usucorreoe, usutelefono, usudireccion, tipuid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE usuario SET usunombre=?, usucontrasena=?,  usuultimasesion=?, usuestatus=?, usunombrereal=?, usucorreoe=?, usutelefono=?, usudireccion=?, tipuid=?  WHERE usuid = ?";
+    private static final String SQL_SELECT = "SELECT usuid, usunombre, usucontrasena, usuultimasesion, usuestatus, usunombrereal, usucorreoe, usutelefono, usudireccion FROM usuario";
+    private static final String SQL_INSERT = "INSERT INTO usuario(usunombre, usucontrasena, usuultimasesion, usuestatus, usunombrereal, usucorreoe, usutelefono, usudireccion) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE usuario SET usunombre=?, usucontrasena=?,  usuultimasesion=?, usuestatus=?, usunombrereal=?, usucorreoe=?, usutelefono=?, usudireccion=? WHERE usuid = ?";
     private static final String SQL_DELETE = "DELETE FROM usuario WHERE usuid=?";
-    private static final String SQL_SELECT_NOMBRE = "SELECT usuid, usunombre, usucontrasena, usuultimasesion, usuestatus, usunombrereal, usucorreoe, usutelefono, usudireccion, tipuid FROM usuario WHERE usunombre = ?";
-    private static final String SQL_SELECT_ID = "SELECT usuid, usunombre, usucontrasena, usuultimasesion, usuestatus, usunombrereal, usucorreoe, usutelefono, usudireccion, tipuid FROM usuario WHERE usuid = ?";     
+    private static final String SQL_SELECT_NOMBRE = "SELECT usuid, usunombre, usucontrasena, usuultimasesion, usuestatus, usunombrereal, usucorreoe, usutelefono, usudireccion FROM usuario WHERE usunombre = ?";
+    private static final String SQL_SELECT_ID = "SELECT usuid, usunombre, usucontrasena, usuultimasesion, usuestatus, usunombrereal, usucorreoe, usutelefono, usudireccion FROM usuario WHERE usuid = ?";     
 
-    public List<ClsUsuario> consultaUsuarios() {
+    public List<clsUsuario> consultaUsuarios() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List<ClsUsuario> usuarios = new ArrayList<>();
+        List<clsUsuario> usuarios = new ArrayList<>();
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
@@ -43,8 +43,7 @@ public class UsuarioDAO {
                 String correo= rs.getString("usucorreoe");
                 String telefono= rs.getString("usutelefono");
 		String direccion= rs.getString("usudireccion");
-		int tipoid= rs.getInt("tipuid");
-                ClsUsuario usuario = new ClsUsuario();
+		clsUsuario usuario = new clsUsuario();
                 usuario.setUsuId(id);
                 usuario.setUsuNombre(nombre);
                 usuario.setUsuContrasena(contrasena);
@@ -54,7 +53,7 @@ public class UsuarioDAO {
                 usuario.setUsuCorreo(correo); 
                 usuario.setUsuTelefono(telefono);
                 usuario.setUsuDireccion(direccion);
-                usuario.setUsuTipo(tipoid);
+              
                 usuarios.add(usuario);
             }
         } catch (SQLException ex) {
@@ -67,7 +66,7 @@ public class UsuarioDAO {
         return usuarios;
     }
 
-    public int ingresaUsuarios(ClsUsuario usuario) {
+    public int ingresaUsuarios(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -82,7 +81,6 @@ public class UsuarioDAO {
             stmt.setString(6, usuario.getUsuCorreo());
             stmt.setString(7, usuario.getUsuTelefono());
             stmt.setString(8, usuario.getUsuDireccion());
-            stmt.setInt(9, usuario.getUsuTipo());
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
             System.out.println("Registros afectados:" + rows);
@@ -96,7 +94,7 @@ public class UsuarioDAO {
         return rows;
     }
 
-    public int actualizaUsuarios(ClsUsuario usuario) {
+    public int actualizaUsuarios(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -112,7 +110,6 @@ public class UsuarioDAO {
             stmt.setString(6, usuario.getUsuCorreo());
             stmt.setString(7, usuario.getUsuTelefono());
             stmt.setString(8, usuario.getUsuDireccion());
-            stmt.setInt(9, usuario.getUsuTipo());
             stmt.setInt(10, usuario.getUsuId());
             
             rows = stmt.executeUpdate();
@@ -128,7 +125,7 @@ public class UsuarioDAO {
         return rows;
     }
 
-    public int borrarUsuarios(ClsUsuario usuario) {
+    public int borrarUsuarios(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -150,7 +147,7 @@ public class UsuarioDAO {
         return rows;
     }
 
-    public ClsUsuario consultaUsuariosPorNombre(ClsUsuario usuario) {
+    public clsUsuario consultaUsuariosPorNombre(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -171,7 +168,7 @@ public class UsuarioDAO {
 		String correo= rs.getString("usucorreoe");
 		String telefono= rs.getString("usutelefono");
 		String direccion= rs.getString("usudireccion");
-		int tipoid= rs.getInt("tipuid");
+		
                 //usuario = new ClsUsuario();
                 usuario.setUsuId(id);
                 usuario.setUsuNombre(nombre);
@@ -182,7 +179,7 @@ public class UsuarioDAO {
                 usuario.setUsuCorreo(correo); 
                 usuario.setUsuTelefono(telefono);
 		usuario.setUsuDireccion(direccion);
-                usuario.setUsuTipo(tipoid);
+                
                 System.out.println(" registro consultado: " + usuario);                
             }
             //System.out.println("Registros buscado:" + persona);
@@ -197,7 +194,7 @@ public class UsuarioDAO {
         //return personas;  // Si se utiliza un ArrayList
         return usuario;
     }
-    public ClsUsuario consultaUsuariosPorId(ClsUsuario usuario) {
+    public clsUsuario consultaUsuariosPorId(clsUsuario usuario) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -218,7 +215,7 @@ public class UsuarioDAO {
 		String correo= rs.getString("usucorreoe");
 		String telefono= rs.getString("usutelefono");
 		String direccion= rs.getString("usudireccion");
-		int tipoid= rs.getInt("tipuid");
+		
                 //usuario = new ClsUsuario();
                 usuario.setUsuId(id);
                 usuario.setUsuNombre(nombre);
@@ -230,7 +227,7 @@ public class UsuarioDAO {
                 usuario.setUsuCorreo(correo); 
                 usuario.setUsuTelefono(telefono);
 		usuario.setUsuDireccion(direccion);
-                usuario.setUsuTipo(tipoid);
+                
                 System.out.println(" registro consultado: " + usuario);                
             }
             //System.out.println("Registros buscado:" + persona);

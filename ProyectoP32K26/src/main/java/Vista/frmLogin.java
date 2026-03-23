@@ -9,7 +9,7 @@ package Vista;
 import Controlador.clsBitacora;
 import Modelo.BitacoraDAO;
 import Controlador.clsSeguridad;
-import Controlador.ClsUsuario;
+import Controlador.clsUsuario;
 import Controlador.clsUsuarioConectado;
 
 import java.awt.HeadlessException;
@@ -166,7 +166,7 @@ public class frmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "NO PUEDEN HABER CAMPOS VACIOS", "ERROR", JOptionPane.                  ERROR_MESSAGE);
         } else {
             try {
-                ClsUsuario usuario = new ClsUsuario();
+                clsUsuario usuario = new clsUsuario();
           
                 usuario.setUsuNombre(txtUsuario.getText().trim());
                 // Recuperación de información a través de otro objeto
@@ -181,7 +181,7 @@ public class frmLogin extends javax.swing.JFrame {
                     "Mensaje de bienvenida", JOptionPane.INFORMATION_MESSAGE);
                     // registrando usuario conectado
                     clsUsuarioConectado usuarioRegistrado = new clsUsuarioConectado();
-                    usuarioRegistrado.setUsuCodigo(usuario.getUsuId());
+                    usuarioRegistrado.setUsuId(usuario.getUsuId());
                     usuarioRegistrado.setUsuNombre(usuario.getUsuNombre());
                     // Registro de Bitacora
                     //** int resultadoBitacora=0;
